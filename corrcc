@@ -91,7 +91,7 @@ class Variable:
         self.values: set[str | int] | None = var_values if var_values else None
 
 
-def compiled_content(content: schema.Content) -> str:
+def compiled_content(content: schema.Content, target: Target) -> str:
     match content:
         case schema.Binning():
             match content.edges:
@@ -100,7 +100,7 @@ def compiled_content(content: schema.Content) -> str:
                         "UniformBinning: This functionality has not been implemented yet."
                     )
                 case list():
-                    return compile_non_uniform_binning(content)
+                    return compile_non_uniform_binning(content, target)
                 case _:
                     print(f"ERROR: Could not identify binning type.", file=sys.stderr)
                     sys.exit(-1)
@@ -109,9 +109,7 @@ def compiled_content(content: schema.Content) -> str:
                 "MultiBinning: This functionality has not been implemented yet."
             )
         case schema.Category():
-            raise NotImplementedError(
-                "Category: This functionality has not been implemented yet."
-            )
+            return compile_category(content, target)
         case schema.Formula():
             raise NotImplementedError(
                 "Formula: This functionality has not been implemented yet."
@@ -129,13 +127,18 @@ def compiled_content(content: schema.Content) -> str:
                 "HashPRNG: This functionality has not been implemented yet."
             )
         case float():
-            return compile_float(content)
+            return compile_float(content, target)
         case _:
             print(f"ERROR: Could not identify content type.", file=sys.stderr)
             sys.exit(-1)
 
 
-def compile_non_uniform_binning(content: schema.Binning) -> str:
+def compile_category(content: schema.Category, target: Target) -> str:
+    keys = [str(c.key) for c in content.content]
+    return "return 42.f"
+
+
+def compile_non_uniform_binning(content: schema.Binning, target: Target) -> str:
     edges = [e for e in content.edges]
     edges = []
     for edge in content.edges:
@@ -151,7 +154,7 @@ def compile_non_uniform_binning(content: schema.Binning) -> str:
             case _:
                 print("ERROR: Could not parse {edge}.", file=sys.stderr)
                 sys.exit(-1)
-
+    n = len(edges)
 
     values = [f"{v}.0f" for v in list(range(len(edges) - 1))]
 
@@ -177,33 +180,63 @@ def compile_non_uniform_binning(content: schema.Binning) -> str:
     c_code = [
         # f"float intervalLookup(float ___QUERY___) {{",
         f"    // Embedded edges and values arrays",
-        f"    const float edges[{n}] = {{{edges_str}}};",
-        f"    const float values[{n-1}] = {{{values_str}}};",
+        f"    float edges[{n}] = {{{edges_str}}};",
+        f"    float values[{n-1}] = {{{values_str}}};",
         f"",
-        f"    // Handle edge cases",
-        f"    if (___QUERY___ < edges[0]) {{",
-        f"        return values[0];",
-        f"    }}",
-        f"    if (___QUERY___ >= edges[{n-1}]) {{",
-        f"        return values[{n-2}];",
-        f"    }}",
     ]
+    match content.flow:
+        case "clamp":
+            c_code.extend(
+                [
+                    f"    // Handle edge cases",
+                    f"    if (___QUERY___ < edges[0]) {{",
+                    f"        {compiled_content(content.content[0], target)};",
+                    f"    }}",
+                    f"    if (___QUERY___ >= edges[{n-1}]) {{",
+                    f"        {compiled_content(content.content[n-2], target)};",
+                    f"    }}",
+                ]
+            )
+        case "error":
+            c_code.extend(
+                [
+                    f"    // Handle edge cases",
+                    f"    if (___QUERY___ < edges[0]) {{",
+                    f'        fprintf(stderr, "ERROR: ___QUERY___ is out of bounds.\\n");{ target.fail() };',
+                    f"    }}",
+                    f"    if (___QUERY___ >= edges[{n-1}]) {{",
+                    f"        {compiled_content(content.content[n-2], target)};",
+                    f"    }}",
+                ]
+            )
+        case _:
+            c_code.extend(
+                [
+                    f"    // Handle edge cases",
+                    f"    if (___QUERY___ < edges[0]) {{",
+                    f"        {compiled_content(content.flow, target)};",
+                    f"    }}",
+                    f"    if (___QUERY___ >= edges[{n-1}]) {{",
+                    f"        {compiled_content(content.flow, target)};",
+                    f"    }}",
+                ]
+            )
 
     # Generate the binary search tree
     def generate_tree(start, end, depth=0):
         # Base case: leaf node (one interval)
         if end - start == 1:
             return [
-                f"{' ' * (depth * 4)}return values[{start}]; // edges[{start}] <= ___QUERY___ < edges[{start+1}]"
+                f"{' ' * (depth * 4)} {compiled_content(content.content[start], target)}; // edges[{start}] <= ___QUERY___ < edges[{start+1}]"
             ]
 
         # Base case: two intervals left
         if end - start == 2:
             return [
                 f"{' ' * (depth * 4)}if (___QUERY___ < edges[{start+1}]) {{",
-                f"{' ' * ((depth+1) * 4)}return values[{start}]; // edges[{start}] <= ___QUERY___ < edges[{start+1}]",
+                f"{' ' * ((depth+1) * 4)}{compiled_content(content.content[start], target)}; // edges[{start}] <= ___QUERY___ < edges[{start+1}]",
                 f"{' ' * (depth * 4)}}} else {{",
-                f"{' ' * ((depth+1) * 4)}return values[{start+1}]; // edges[{start+1}] <= ___QUERY___ < edges[{start+2}]",
+                f"{' ' * ((depth+1) * 4)} {compiled_content(content.content[start+1], target)}; // edges[{start+1}] <= ___QUERY___ < edges[{start+2}]",
                 f"{' ' * (depth * 4)}}}",
             ]
 
@@ -231,13 +264,10 @@ def compile_non_uniform_binning(content: schema.Binning) -> str:
     )
     c_code.extend(["    " + line for line in generate_tree(0, n - 1)])
 
-    # Close the function
-    # c_code.append("}")
-
     return "\n".join(c_code).replace("___QUERY___", content.input)
 
 
-def compile_float(content: schema.Content) -> str:
+def compile_float(content: schema.Content, target: Target) -> str:
     return f"return { content }"
 
 
@@ -294,7 +324,7 @@ class CorrectionBuilder:
             print("ERROR: No content have been added.", file=sys.stderr)
             sys.exit(-1)
 
-        return compiled_content(self.content)
+        return compiled_content(self.content, self.target)
 
     def _build_enums(self) -> str:
         enums_declaration = ""
