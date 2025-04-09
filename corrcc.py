@@ -3,15 +3,45 @@ import os
 import subprocess
 import shutil
 from enum import StrEnum
-from typing import Any
 
 import correctionlib.schemav2 as schema
 from correctionlib.highlevel import open_auto
 
 
-class Variable:
-    HASH_SIZE = 8
+import argparse
 
+
+def create_parser():
+    # Create the parser object
+    parser = argparse.ArgumentParser(description="A correctionlib JSON to C compiler.")
+
+    # Add a positional argument
+    parser.add_argument("input_json_file", help="Input JSON file")
+
+    # Add a list argument
+    parser.add_argument(
+        "--corrections", nargs="+", help="List of corrections to compile"
+    )
+
+    return parser
+
+
+class Target(StrEnum):
+    C = "C"
+    CUDA = "CUDA"
+
+    def fail(self) -> str:
+        match self:
+            case Target.C:
+                return "exit(-1)"
+            case Target.CUDA:
+                return "assert(0)"
+            case _:
+                print("ERROR: Unknown target.", file=sys.stderr)
+                sys.exit(-1)
+
+
+class Variable:
     def __init__(
         self,
         *,
@@ -23,13 +53,12 @@ class Variable:
         var_values: set[str | int],
     ) -> None:
         was_string = False
-        correction_hash = hash(correction_name) % (10**self.HASH_SIZE)
 
         match var_type:
             case "real":
                 var_type = "float"
             case "string":
-                var_type = f"{var_name.capitalize()}_{correction_hash}"
+                var_type = f"{var_name}_{correction_name}"
                 was_string = True
             case "int":
                 pass
@@ -60,19 +89,153 @@ class Variable:
         self.values: set[str | int] | None = var_values if var_values else None
 
 
-class Target(StrEnum):
-    C = "C"
-    CUDA = "CUDA"
+def compiled_content(content: schema.Content) -> str:
+    match content:
+        case schema.Binning():
+            match content.edges:
+                case schema.UniformBinning():
+                    raise NotImplementedError(
+                        "UniformBinning: This functionality has not been implemented yet."
+                    )
+                case list():
+                    return compile_non_uniform_binning(content)
+                case _:
+                    print(f"ERROR: Could not identify binning type.", file=sys.stderr)
+                    sys.exit(-1)
+        case schema.MultiBinning():
+            raise NotImplementedError(
+                "MultiBinning: This functionality has not been implemented yet."
+            )
+        case schema.Category():
+            raise NotImplementedError(
+                "Category: This functionality has not been implemented yet."
+            )
+        case schema.Formula():
+            raise NotImplementedError(
+                "Formula: This functionality has not been implemented yet."
+            )
+        case schema.FormulaRef():
+            raise NotImplementedError(
+                "FormulaRef: This functionality has not been implemented yet."
+            )
+        case schema.Transform():
+            raise NotImplementedError(
+                "Transform: This functionality has not been implemented yet."
+            )
+        case schema.HashPRNG():
+            raise NotImplementedError(
+                "HashPRNG: This functionality has not been implemented yet."
+            )
+        case float():
+            return compile_float(content)
+        case _:
+            print(f"ERROR: Could not identify content type.", file=sys.stderr)
+            sys.exit(-1)
 
-    def fail(self) -> str:
-        match self:
-            case Target.C:
-                return "exit(-1)"
-            case Target.CUDA:
-                return "assert(0)"
+
+def compile_non_uniform_binning(content: schema.Binning) -> str:
+    edges = [e for e in content.edges]
+    edges = []
+    for edge in content.edges:
+        match edge:
+            case float():
+                edges.append(edge)
+            case "inf":
+                edges.append("MAX_FLOAT")
+            case "+inf":
+                edges.append("MAX_FLOAT")
+            case "-inf":
+                edges.append("-MAX_FLOAT")
             case _:
-                print("ERROR: Unknown target.", file=sys.stderr)
+                print("ERROR: Could not parse {edge}.", file=sys.stderr)
                 sys.exit(-1)
+
+    values = [f"{v}.0f" for v in list(range(len(edges) - 1))]
+
+    if len(edges) != len(values) + 1:
+        raise ValueError(
+            f"Invalid input: edges must have exactly one more element than values. Got {len(edges)} edges and {len(values)} values"
+        )
+
+    if not all(edges[i] < edges[i + 1] for i in range(len(edges) - 1)):
+        raise ValueError("Edges must be sorted in ascending order")
+
+    n = len(edges)
+
+    # Format the edges and values as C array initializers
+    edges_str = ", ".join(
+        [f"{e}f" if isinstance(e, (int, float)) else str(e) for e in edges]
+    )
+    values_str = ", ".join(
+        [f"{v}f" if isinstance(v, (int, float)) else str(v) for v in values]
+    )
+
+    # Start building the function
+    c_code = [
+        # f"float intervalLookup(float ___QUERY___) {{",
+        f"    // Embedded edges and values arrays",
+        f"    const float edges[{n}] = {{{edges_str}}};",
+        f"    const float values[{n-1}] = {{{values_str}}};",
+        f"",
+        f"    // Handle edge cases",
+        f"    if (___QUERY___ < edges[0]) {{",
+        f"        return values[0];",
+        f"    }}",
+        f"    if (___QUERY___ >= edges[{n-1}]) {{",
+        f"        return values[{n-2}];",
+        f"    }}",
+    ]
+
+    # Generate the binary search tree
+    def generate_tree(start, end, depth=0):
+        # Base case: leaf node (one interval)
+        if end - start == 1:
+            return [
+                f"{' ' * (depth * 4)}return values[{start}]; // edges[{start}] <= ___QUERY___ < edges[{start+1}]"
+            ]
+
+        # Base case: two intervals left
+        if end - start == 2:
+            return [
+                f"{' ' * (depth * 4)}if (___QUERY___ < edges[{start+1}]) {{",
+                f"{' ' * ((depth+1) * 4)}return values[{start}]; // edges[{start}] <= ___QUERY___ < edges[{start+1}]",
+                f"{' ' * (depth * 4)}}} else {{",
+                f"{' ' * ((depth+1) * 4)}return values[{start+1}]; // edges[{start+1}] <= ___QUERY___ < edges[{start+2}]",
+                f"{' ' * (depth * 4)}}}",
+            ]
+
+        # Recursive case: split the search space
+        mid = start + (end - start) // 2
+
+        code = [f"{' ' * (depth * 4)}if (___QUERY___ < edges[{mid}]) {{"]
+
+        # Left subtree
+        code.extend(generate_tree(start, mid, depth + 1))
+
+        code.append(f"{' ' * (depth * 4)}}} else {{")
+
+        # Right subtree
+        code.extend(generate_tree(mid, end, depth + 1))
+
+        code.append(f"{' ' * (depth * 4)}}}")
+
+        return code
+
+    # Generate the tree and add it to the function with a comment
+    c_code.append("")
+    c_code.append(
+        "    // Binary search implemented as a balanced decision tree with if/else statements"
+    )
+    c_code.extend(["    " + line for line in generate_tree(0, n - 1)])
+
+    # Close the function
+    # c_code.append("}")
+
+    return "\n".join(c_code).replace("___QUERY___", content.input)
+
+
+def compile_float(content: schema.Content) -> str:
+    return f"return { content }"
 
 
 class CorrectionBuilder:
@@ -81,6 +244,7 @@ class CorrectionBuilder:
         self.vars: dict[str, Variable] = {}
         self.target = target
         self.description: str | None = ""
+        self.content = None
 
     def set_target(self, target: Target) -> "CorrectionBuilder":
         self.target = target
@@ -113,22 +277,21 @@ class CorrectionBuilder:
 
         return self
 
-    def add_data(self, data: Any) -> "CorrectionBuilder":
+    def set_content(self, content: schema.Content) -> "CorrectionBuilder":
+        self.content = content
+
+        return self
+
+    def _compile_content(self) -> str:
         if len(self.vars) == 0:
             print("ERROR: No variables have been added.", file=sys.stderr)
             sys.exit(-1)
 
-        if isinstance(data, schema.Binning):
-            # print(f"Binning: {data.input}")
-            pass
-        elif isinstance(data, schema.Category):
-            # print(f"Category: {data.input}")
-            pass
-        else:
-            # print(f"Any other model.")
-            pass
+        if not (self.content):
+            print("ERROR: No content have been added.", file=sys.stderr)
+            sys.exit(-1)
 
-        return self
+        return compiled_content(self.content)
 
     def _build_enums(self) -> str:
         enums_declaration = ""
@@ -136,7 +299,9 @@ class CorrectionBuilder:
             if self.vars[v].was_string:
                 _values = self.vars[v].values
                 if _values:
-                    enums_body = ", ".join([str(v) for v in _values])
+                    enums_body = ", ".join(
+                        [f"{str(v).upper()}_{self.name}" for v in _values]
+                    )
                     enums_declaration += f"""
                             typedef enum {{
                                 {enums_body}
@@ -149,40 +314,46 @@ class CorrectionBuilder:
         for var in self.vars:
             if not self.vars[var].was_string:
                 validation += f"""
-                    if ({self.vars[var].name} < {self.vars[var].min} || {self.vars[var].name} > {self.vars[var].max}) { self.target.fail() };
+                    if ({self.vars[var].name} < {self.vars[var].min} || {self.vars[var].name} > {self.vars[var].max}) {{ fprintf(stderr, "ERROR: {self.vars[var].name} is out of bounds.\\n");
+                    { self.target.fail() }; }};
                """
         return validation
 
-    def dump(self) -> str:
+    def _dump(self) -> str:
         enums = self._build_enums()
         args = ", ".join(
-            [f"{self.vars[var].type} {self.vars[var].name}" for var in self.vars]
+            [f"const {self.vars[var].type} {self.vars[var].name}" for var in self.vars]
         )
 
         argument_validation = self._argument_validation()
 
+        compiled_content = self._compile_content()
+
         c_func = f"""
         #include <stdlib.h>
+        #include <stdio.h>
         #include <float.h>
 
         {enums}
-        /*{self.description}*/
+        /*\n{self.description}\n*/
         float {self.name}({args}){{
         {argument_validation}
 
+        {compiled_content}
 
-        return 1.;
+        fprintf(stderr, "ERROR: Exausted branches. This should never happen.\\n");
+        {self.target.fail()};
         }}
 
         """
         return c_func
 
-    def save(self, *, output_dir: str = "corrections") -> None:
+    def save(self, *, output_dir: str = "corrections", do_format: bool = False) -> None:
         os.makedirs(output_dir, exist_ok=True)
-        if shutil.which("clang-format"):
+        if do_format and shutil.which("clang-format"):
             try:
                 res = subprocess.run(
-                    ["clang-format"], input=self.dump(), capture_output=True, text=True
+                    ["clang-format"], input=self._dump(), capture_output=True, text=True
                 )
                 if res.returncode == 0:
                     with open(f"{output_dir}/{self.name}.h", "w") as f:
@@ -193,71 +364,39 @@ class CorrectionBuilder:
                     file=sys.stderr,
                 )
         else:
-            print(
-                f"WARNING: Could not format correction file. Try to install clang-format with: python3 -m pip install --user clang-format",
-            )
+            if do_format:
+                print(
+                    f"WARNING: Could not format correction file. Try to install clang-format with: python3 -m pip install --user clang-format",
+                )
             with open(f"{output_dir}/{self.name}.h", "w") as f:
-                f.write(self.dump())
+                f.write(self._dump())
+
+
+def main():
+    # Parse command-line arguments
+    parser = create_parser()
+    args = parser.parse_args()
+
+    corr_set = schema.CorrectionSet.model_validate_json(open_auto(args.input_json_file))
+    for i, c in enumerate(corr_set.corrections):
+        if not (args.corrections) or c.name in args.corrections:
+            print(f"Processing: {c.name}")
+            builder = CorrectionBuilder(name=c.name).set_description(c.description)
+
+            _, variables = c.summary()
+
+            for i in c.inputs:
+                builder.add_var(
+                    var_type=i.type,
+                    var_name=i.name,
+                    var_min=variables[i.name].min,
+                    var_max=variables[i.name].max,
+                    var_values=variables[i.name].values,
+                )
+
+            builder.set_content(c.data)
+            builder.save(do_format=True)
 
 
 if __name__ == "__main__":
-    # corr_set = schema.CorrectionSet.parse_raw(open_auto("samples/muon_Z.json.gz"))
-    corr_set = schema.CorrectionSet.parse_raw(
-        open_auto(
-            # "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/2023_Summer23/muon_Z.json.gz"
-            "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2023_Summer23/jet_jerc.json.gz"
-        )
-    )
-    for i, c in enumerate(corr_set.corrections):
-        if i == 1:
-            # if c.name == "Summer23Prompt23_RunCv4_JRV1_MC_ScaleFactor_AK4PFPuppi":
-            builder = CorrectionBuilder(name=c.name).set_description(c.description)
-
-            counts, variables = c.summary()
-            # print(counts)
-            # print(variables)
-            print(type(c.data))
-            print(dir(c.data))
-            print(c.data.edges)
-            print(c.data.flow)
-            print(c.data.input)
-            # print("c.data.content", c.data.content)
-            content = c.data.content[2]
-            print(content)
-            print(dir(content))
-            print(content.variables)
-            print(content.expression)
-            print(content.parse_raw)
-            print("\n================")
-            break
-
-        # for i in c.inputs:
-        #     builder = builder.add_var(
-        #         var_type=i.type,
-        #         var_name=i.name,
-        #         var_min=variables[i.name].min,
-        #         var_max=variables[i.name].max,
-        #         var_values=variables[i.name].values,
-        #     )
-        #
-        # builder = builder.add_data(c.data).save()
-
-        # print(c.name)
-        # print(c.inputs)
-        # print(c.output)
-        # counts, variables = c.summary()
-        # for var in variables:
-        #     print(var, variables[var].values)
-        #     print(var, variables[var].transform)
-        # print(c.summary())
-        # print(c.inputs)
-        # foo = c.json(indent=3)
-        # with open("foo.json", "w") as f:
-        #     f.write(foo)
-
-    # import correctionlib
-    # ceval = correctionlib.CorrectionSet.from_file(
-    #     "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/2023_Summer23/jet_jerc.json.gz"
-    # )["Summer23Prompt23_RunCv123_V1_DATA_L1FastJet_AK4PFPuppi"]
-    #
-    # print(ceval.evaluate(5.0, 1.0, -3.0, 0.2))
+    main()
