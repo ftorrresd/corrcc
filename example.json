@@ -1,0 +1,4757 @@
+{
+  "name": "NUM_GlobalMuons_DEN_TrackerMuons",
+  "description": "NUM_GlobalMuons_DEN_TrackerMuons",
+  "version": 1,
+  "inputs": [
+    {
+      "name": "eta",
+      "type": "real",
+      "description": "Probe eta"
+    },
+    {
+      "name": "pt",
+      "type": "real",
+      "description": "Probe pt"
+    },
+    {
+      "name": "scale_factors",
+      "type": "string",
+      "description": "Choose nominal scale factor or one of the uncertainties"
+    }
+  ],
+  "output": {
+    "name": "weight",
+    "type": "real",
+    "description": "Output scale factor (nominal) or uncertainty"
+  },
+  "generic_formulas": null,
+  "data": {
+    "nodetype": "binning",
+    "input": "eta",
+    "edges": [
+      -2.4,
+      -2.1,
+      -1.6,
+      -1.2,
+      -0.9,
+      -0.3,
+      -0.2,
+      0.2,
+      0.3,
+      0.9,
+      1.2,
+      1.6,
+      2.1,
+      2.4
+    ],
+    "content": [
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.005021882970517644
+              },
+              {
+                "key": "massBin",
+                "value": 0.0006155756067715568
+              },
+              {
+                "key": "massRange",
+                "value": 0.001179574236319536
+              },
+              {
+                "key": "stat",
+                "value": 0.001441135644682584
+              },
+              {
+                "key": "syst",
+                "value": 0.005021882970517644
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0009007261700458291
+              },
+              {
+                "key": "nominal",
+                "value": 0.9693327664901425
+              },
+              {
+                "key": "systup",
+                "value": 0.9745573411633528
+              },
+              {
+                "key": "systdown",
+                "value": 0.9641081918169323
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.002840311482602109
+              },
+              {
+                "key": "massBin",
+                "value": 0.00011439498353355004
+              },
+              {
+                "key": "massRange",
+                "value": 0.000792373956730652
+              },
+              {
+                "key": "stat",
+                "value": 0.0010751945849833615
+              },
+              {
+                "key": "syst",
+                "value": 0.002840311482602109
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00046172783525683103
+              },
+              {
+                "key": "nominal",
+                "value": 0.9685931577532465
+              },
+              {
+                "key": "systup",
+                "value": 0.9716301649501065
+              },
+              {
+                "key": "systdown",
+                "value": 0.9655561505563865
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.003780979247552052
+              },
+              {
+                "key": "massBin",
+                "value": 9.22180178473675e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0003170244104072073
+              },
+              {
+                "key": "stat",
+                "value": 0.0007603315727979812
+              },
+              {
+                "key": "syst",
+                "value": 0.003780979247552052
+              },
+              {
+                "key": "tagIso",
+                "value": 9.358567317074851e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.975490969837969
+              },
+              {
+                "key": "systup",
+                "value": 0.9793476404449839
+              },
+              {
+                "key": "systdown",
+                "value": 0.9716342992309541
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0008924110454139322
+              },
+              {
+                "key": "massBin",
+                "value": 0.00011822592694699097
+              },
+              {
+                "key": "massRange",
+                "value": 0.0006573822965358911
+              },
+              {
+                "key": "stat",
+                "value": 0.00041390379045819415
+              },
+              {
+                "key": "syst",
+                "value": 0.0011083992772352343
+              },
+              {
+                "key": "tagIso",
+                "value": 3.134009271116289e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9740774552078397
+              },
+              {
+                "key": "systup",
+                "value": 0.9752606142442889
+              },
+              {
+                "key": "systdown",
+                "value": 0.9728942961713906
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0011767406751549414
+              },
+              {
+                "key": "massBin",
+                "value": 1.4328666957996727e-05
+              },
+              {
+                "key": "massRange",
+                "value": 7.497468087097614e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00047291979096890054
+              },
+              {
+                "key": "syst",
+                "value": 0.0011767406751549414
+              },
+              {
+                "key": "tagIso",
+                "value": 9.743919252730437e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9740613147418228
+              },
+              {
+                "key": "systup",
+                "value": 0.9753295307113068
+              },
+              {
+                "key": "systdown",
+                "value": 0.9727930987723388
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 6.238013093529116e-05
+              },
+              {
+                "key": "massBin",
+                "value": 1.509375721958639e-05
+              },
+              {
+                "key": "massRange",
+                "value": 9.780024755623451e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0008784135666517962
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 5.284270943556324e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9727078156359638
+              },
+              {
+                "key": "systup",
+                "value": 0.9735862292026155
+              },
+              {
+                "key": "systdown",
+                "value": 0.971829402069312
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.002023574074957124
+              },
+              {
+                "key": "massBin",
+                "value": 0.00010802136210047442
+              },
+              {
+                "key": "massRange",
+                "value": 0.00030321032481722687
+              },
+              {
+                "key": "stat",
+                "value": 0.0013694338136036469
+              },
+              {
+                "key": "syst",
+                "value": 0.002564205808551131
+              },
+              {
+                "key": "tagIso",
+                "value": 0.001574896628915301
+              },
+              {
+                "key": "nominal",
+                "value": 0.9687150722157385
+              },
+              {
+                "key": "systup",
+                "value": 0.9716220466563638
+              },
+              {
+                "key": "systdown",
+                "value": 0.9658080977751132
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.010213320227901335
+              },
+              {
+                "key": "massBin",
+                "value": 0.0009935459624129672
+              },
+              {
+                "key": "massRange",
+                "value": 0.002319070132581036
+              },
+              {
+                "key": "stat",
+                "value": 0.007644068052071361
+              },
+              {
+                "key": "syst",
+                "value": 0.010213320227901335
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0007246253557138815
+              },
+              {
+                "key": "nominal",
+                "value": 0.9806837265657086
+              },
+              {
+                "key": "systup",
+                "value": 0.9934408299384322
+              },
+              {
+                "key": "systdown",
+                "value": 0.967926623192985
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.004616347240853802
+              },
+              {
+                "key": "massBin",
+                "value": 0.0001046476497808535
+              },
+              {
+                "key": "massRange",
+                "value": 0.0006979633537429475
+              },
+              {
+                "key": "stat",
+                "value": 0.0007017706565476537
+              },
+              {
+                "key": "syst",
+                "value": 0.004616347240853802
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0002926377019931703
+              },
+              {
+                "key": "nominal",
+                "value": 0.9883192599152583
+              },
+              {
+                "key": "systup",
+                "value": 0.9929886435900627
+              },
+              {
+                "key": "systdown",
+                "value": 0.9836498762404539
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0014222005307530372
+              },
+              {
+                "key": "massBin",
+                "value": 8.674579047163178e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.000525743340527518
+              },
+              {
+                "key": "stat",
+                "value": 0.00044653098949796446
+              },
+              {
+                "key": "syst",
+                "value": 0.0015162652834458932
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0002574161757596949
+              },
+              {
+                "key": "nominal",
+                "value": 0.9900338857997938
+              },
+              {
+                "key": "systup",
+                "value": 0.9916145345066117
+              },
+              {
+                "key": "systdown",
+                "value": 0.9884532370929758
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0005420293647905305
+              },
+              {
+                "key": "massBin",
+                "value": 2.3359539261524898e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00010882892500024832
+              },
+              {
+                "key": "stat",
+                "value": 0.00035310993065508836
+              },
+              {
+                "key": "syst",
+                "value": 0.0005420293647905305
+              },
+              {
+                "key": "tagIso",
+                "value": 9.98220907610925e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9890391935723817
+              },
+              {
+                "key": "systup",
+                "value": 0.9896860957716533
+              },
+              {
+                "key": "systdown",
+                "value": 0.98839229137311
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0012663125897440786
+              },
+              {
+                "key": "massBin",
+                "value": 1.613287502222338e-05
+              },
+              {
+                "key": "massRange",
+                "value": 2.7798749866192463e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00019166734205556036
+              },
+              {
+                "key": "syst",
+                "value": 0.0012663125897440786
+              },
+              {
+                "key": "tagIso",
+                "value": 1.2762886750172786e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9881957472813983
+              },
+              {
+                "key": "systup",
+                "value": 0.9894764829859661
+              },
+              {
+                "key": "systdown",
+                "value": 0.9869150115768304
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 2.7359406687632593e-05
+              },
+              {
+                "key": "massBin",
+                "value": 2.325605956327026e-05
+              },
+              {
+                "key": "massRange",
+                "value": 3.445714374739062e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0002060548406355736
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 1.0993763402800116e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9879951582242564
+              },
+              {
+                "key": "systup",
+                "value": 0.9882012130648921
+              },
+              {
+                "key": "systdown",
+                "value": 0.9877891033836208
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0004778821728856908
+              },
+              {
+                "key": "massBin",
+                "value": 2.1368900102791688e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0002604194181101138
+              },
+              {
+                "key": "stat",
+                "value": 0.0003464442954065336
+              },
+              {
+                "key": "syst",
+                "value": 0.0004778821728856908
+              },
+              {
+                "key": "tagIso",
+                "value": 8.18622949187442e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9875181489551044
+              },
+              {
+                "key": "systup",
+                "value": 0.9881083989199343
+              },
+              {
+                "key": "systdown",
+                "value": 0.9869278989902744
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0005458999265149922
+              },
+              {
+                "key": "massBin",
+                "value": 4.467424587434321e-05
+              },
+              {
+                "key": "massRange",
+                "value": 8.24888949635394e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0005877629538644265
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0001567432960203896
+              },
+              {
+                "key": "nominal",
+                "value": 0.9858332198899965
+              },
+              {
+                "key": "systup",
+                "value": 0.9864209828438609
+              },
+              {
+                "key": "systdown",
+                "value": 0.9852454569361321
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0006446669858998222
+              },
+              {
+                "key": "massBin",
+                "value": 3.556764963708048e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.000983965531382358
+              },
+              {
+                "key": "stat",
+                "value": 0.0030509920811773086
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0003254356260590785
+              },
+              {
+                "key": "nominal",
+                "value": 0.9852205876595747
+              },
+              {
+                "key": "systup",
+                "value": 0.988271579740752
+              },
+              {
+                "key": "systdown",
+                "value": 0.9821695955783973
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.001398814466130549
+              },
+              {
+                "key": "massBin",
+                "value": 4.027905380388219e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0008437432610823303
+              },
+              {
+                "key": "stat",
+                "value": 0.0006160810433191399
+              },
+              {
+                "key": "syst",
+                "value": 0.001633580301447694
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00013897367951581918
+              },
+              {
+                "key": "nominal",
+                "value": 0.9942389357439767
+              },
+              {
+                "key": "systup",
+                "value": 0.9959848281957661
+              },
+              {
+                "key": "systdown",
+                "value": 0.9924930432921873
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00037774944784951803
+              },
+              {
+                "key": "massBin",
+                "value": 0.0007138250321507833
+              },
+              {
+                "key": "massRange",
+                "value": 0.0003762299557188431
+              },
+              {
+                "key": "stat",
+                "value": 0.00035229615702713385
+              },
+              {
+                "key": "syst",
+                "value": 0.0008909488208959508
+              },
+              {
+                "key": "tagIso",
+                "value": 3.4179634758157995e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9977652451620015
+              },
+              {
+                "key": "systup",
+                "value": 0.9987233173845985
+              },
+              {
+                "key": "systdown",
+                "value": 0.9968071729394045
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00013375219636913016
+              },
+              {
+                "key": "massBin",
+                "value": 5.2119753608081965e-05
+              },
+              {
+                "key": "massRange",
+                "value": 7.748251732409006e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00027858834912682096
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 2.243255935219235e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.996747389488845
+              },
+              {
+                "key": "systup",
+                "value": 0.9970259778379719
+              },
+              {
+                "key": "systdown",
+                "value": 0.9964688011397181
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 9.960664414476739e-05
+              },
+              {
+                "key": "massBin",
+                "value": 9.572717545813791e-06
+              },
+              {
+                "key": "massRange",
+                "value": 2.1199947757677418e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.000131802303860469
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 2.372192375249549e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9970729000569701
+              },
+              {
+                "key": "systup",
+                "value": 0.9972047023608306
+              },
+              {
+                "key": "systdown",
+                "value": 0.9969410977531097
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 8.56127583799271e-05
+              },
+              {
+                "key": "massBin",
+                "value": 2.8952787625158294e-06
+              },
+              {
+                "key": "massRange",
+                "value": 2.2623981439318097e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00012932851318725209
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 3.2456691800852866e-07
+              },
+              {
+                "key": "nominal",
+                "value": 0.9972654339546816
+              },
+              {
+                "key": "systup",
+                "value": 0.9973947624678688
+              },
+              {
+                "key": "systdown",
+                "value": 0.9971361054414943
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0009355992524768819
+              },
+              {
+                "key": "massBin",
+                "value": 1.9591087333847845e-05
+              },
+              {
+                "key": "massRange",
+                "value": 4.6882111331247867e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00024911058590654364
+              },
+              {
+                "key": "syst",
+                "value": 0.0009355992524768819
+              },
+              {
+                "key": "tagIso",
+                "value": 5.9953327856798744e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.997333597655861
+              },
+              {
+                "key": "systup",
+                "value": 0.9983017929074741
+              },
+              {
+                "key": "systdown",
+                "value": 0.996365402404248
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0003995927283725331
+              },
+              {
+                "key": "massBin",
+                "value": 2.3416597223269164e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00015989107866654084
+              },
+              {
+                "key": "stat",
+                "value": 0.0003147393092928459
+              },
+              {
+                "key": "syst",
+                "value": 0.0003995927283725331
+              },
+              {
+                "key": "tagIso",
+                "value": 3.316635247541111e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9972279404377585
+              },
+              {
+                "key": "systup",
+                "value": 0.9977366006203778
+              },
+              {
+                "key": "systdown",
+                "value": 0.9967192802551392
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000616494279230273
+              },
+              {
+                "key": "massBin",
+                "value": 0.0001828495174135969
+              },
+              {
+                "key": "massRange",
+                "value": 0.0003504188024990862
+              },
+              {
+                "key": "stat",
+                "value": 0.0020979032580967613
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0001372655652415733
+              },
+              {
+                "key": "nominal",
+                "value": 0.9950316335353028
+              },
+              {
+                "key": "systup",
+                "value": 0.9971295367933996
+              },
+              {
+                "key": "systdown",
+                "value": 0.992933730277206
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0037295288681439276
+              },
+              {
+                "key": "massBin",
+                "value": 5.062906898362085e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0006062914657983809
+              },
+              {
+                "key": "stat",
+                "value": 0.0010904286548022823
+              },
+              {
+                "key": "syst",
+                "value": 0.0037295288681439276
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00030353071909700047
+              },
+              {
+                "key": "nominal",
+                "value": 0.9850889939299495
+              },
+              {
+                "key": "systup",
+                "value": 0.988974662499132
+              },
+              {
+                "key": "systdown",
+                "value": 0.981203325360767
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0016739688909359618
+              },
+              {
+                "key": "massBin",
+                "value": 2.6039426716695235e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00023932098988532768
+              },
+              {
+                "key": "stat",
+                "value": 0.0007524457864150972
+              },
+              {
+                "key": "syst",
+                "value": 0.0016739688909359618
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00030971889313141654
+              },
+              {
+                "key": "nominal",
+                "value": 0.9860187324980964
+              },
+              {
+                "key": "systup",
+                "value": 0.9878540380610246
+              },
+              {
+                "key": "systdown",
+                "value": 0.9841834269351681
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0013223908423468655
+              },
+              {
+                "key": "massBin",
+                "value": 9.876349781334781e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00022317197373411535
+              },
+              {
+                "key": "stat",
+                "value": 0.0005083629468073085
+              },
+              {
+                "key": "syst",
+                "value": 0.0013223908423468655
+              },
+              {
+                "key": "tagIso",
+                "value": 6.28652275828645e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9866488078065224
+              },
+              {
+                "key": "systup",
+                "value": 0.9880655471705585
+              },
+              {
+                "key": "systdown",
+                "value": 0.9852320684424863
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00020125590155339879
+              },
+              {
+                "key": "massBin",
+                "value": 2.008225454008805e-05
+              },
+              {
+                "key": "massRange",
+                "value": 7.080215054838801e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.000239025991619342
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 8.323571120594231e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9882933672648679
+              },
+              {
+                "key": "systup",
+                "value": 0.9885323932564872
+              },
+              {
+                "key": "systdown",
+                "value": 0.9880543412732486
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0002546205554246894
+              },
+              {
+                "key": "massBin",
+                "value": 5.644848075470055e-06
+              },
+              {
+                "key": "massRange",
+                "value": 1.5489524735790017e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0002702735118684077
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 8.098210446561005e-06
+              },
+              {
+                "key": "nominal",
+                "value": 0.988930897845203
+              },
+              {
+                "key": "systup",
+                "value": 0.9892011713570714
+              },
+              {
+                "key": "systdown",
+                "value": 0.9886606243333347
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0001240867131537815
+              },
+              {
+                "key": "massBin",
+                "value": 1.2128422066159938e-05
+              },
+              {
+                "key": "massRange",
+                "value": 9.602938352226698e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00046070754120703094
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00010759591499581722
+              },
+              {
+                "key": "nominal",
+                "value": 0.9894491317042956
+              },
+              {
+                "key": "systup",
+                "value": 0.9899098392455027
+              },
+              {
+                "key": "systdown",
+                "value": 0.9889884241630885
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00026211985287538653
+              },
+              {
+                "key": "massBin",
+                "value": 4.850241138132372e-05
+              },
+              {
+                "key": "massRange",
+                "value": 6.241801278955572e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.000648583231566546
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00010292244608833823
+              },
+              {
+                "key": "nominal",
+                "value": 0.9888664776525454
+              },
+              {
+                "key": "systup",
+                "value": 0.989515060884112
+              },
+              {
+                "key": "systdown",
+                "value": 0.9882178944209788
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.003491843185341792
+              },
+              {
+                "key": "massBin",
+                "value": 5.0769739535660996e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0007150592456524607
+              },
+              {
+                "key": "stat",
+                "value": 0.003250183836284461
+              },
+              {
+                "key": "syst",
+                "value": 0.003491843185341792
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00019164425298856536
+              },
+              {
+                "key": "nominal",
+                "value": 0.992105334027285
+              },
+              {
+                "key": "systup",
+                "value": 0.9968757285393419
+              },
+              {
+                "key": "systdown",
+                "value": 0.987334939515228
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000494790221889474
+              },
+              {
+                "key": "massBin",
+                "value": 5.355927547873174e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00015199640378610324
+              },
+              {
+                "key": "stat",
+                "value": 0.0005277626367260114
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0001808121795089379
+              },
+              {
+                "key": "nominal",
+                "value": 0.9968527021416789
+              },
+              {
+                "key": "systup",
+                "value": 0.9973804647784049
+              },
+              {
+                "key": "systdown",
+                "value": 0.9963249395049528
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0007196391031896177
+              },
+              {
+                "key": "massBin",
+                "value": 3.402732964807864e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00026096991448515405
+              },
+              {
+                "key": "stat",
+                "value": 0.0003837444675528241
+              },
+              {
+                "key": "syst",
+                "value": 0.0007196391031896177
+              },
+              {
+                "key": "tagIso",
+                "value": 8.09271800393252e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9974205221637148
+              },
+              {
+                "key": "systup",
+                "value": 0.998236083476687
+              },
+              {
+                "key": "systdown",
+                "value": 0.9966049608507426
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00023737457957762054
+              },
+              {
+                "key": "massBin",
+                "value": 7.237648754765402e-06
+              },
+              {
+                "key": "massRange",
+                "value": 4.001694366539965e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00023198532369628146
+              },
+              {
+                "key": "syst",
+                "value": 0.00023737457957762054
+              },
+              {
+                "key": "tagIso",
+                "value": 5.302330485573714e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9964856526558632
+              },
+              {
+                "key": "systup",
+                "value": 0.9968175621035144
+              },
+              {
+                "key": "systdown",
+                "value": 0.996153743208212
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 1.030917609246007e-05
+              },
+              {
+                "key": "massBin",
+                "value": 5.184828019921817e-06
+              },
+              {
+                "key": "massRange",
+                "value": 2.122456943215445e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.000157187057089385
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 1.2181937952437938e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9964166830630173
+              },
+              {
+                "key": "systup",
+                "value": 0.9965738701201067
+              },
+              {
+                "key": "systdown",
+                "value": 0.996259496005928
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 6.512432714245175e-05
+              },
+              {
+                "key": "massBin",
+                "value": 3.864894591920631e-06
+              },
+              {
+                "key": "massRange",
+                "value": 9.262475482108012e-06
+              },
+              {
+                "key": "stat",
+                "value": 0.0001253700598763595
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 9.139365021060275e-06
+              },
+              {
+                "key": "nominal",
+                "value": 0.9966242651229809
+              },
+              {
+                "key": "systup",
+                "value": 0.9967496351828572
+              },
+              {
+                "key": "systdown",
+                "value": 0.9964988950631045
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 7.322913615981363e-05
+              },
+              {
+                "key": "massBin",
+                "value": 4.5481606257891105e-05
+              },
+              {
+                "key": "massRange",
+                "value": 4.4151154931615366e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.000227174104231251
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 5.412974420421213e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.996057404234995
+              },
+              {
+                "key": "systup",
+                "value": 0.9962845783392262
+              },
+              {
+                "key": "systdown",
+                "value": 0.9958302301307638
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0003704263124366669
+              },
+              {
+                "key": "massBin",
+                "value": 3.738743736092509e-05
+              },
+              {
+                "key": "massRange",
+                "value": 1.250269157310191e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0003507947618597677
+              },
+              {
+                "key": "syst",
+                "value": 0.0003704263124366669
+              },
+              {
+                "key": "tagIso",
+                "value": 8.664631294119651e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9960387905307002
+              },
+              {
+                "key": "systup",
+                "value": 0.9965489597358603
+              },
+              {
+                "key": "systdown",
+                "value": 0.9955286213255401
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.003632483708476242
+              },
+              {
+                "key": "massBin",
+                "value": 0.0003925820771904509
+              },
+              {
+                "key": "massRange",
+                "value": 0.00017952941467846983
+              },
+              {
+                "key": "stat",
+                "value": 0.0015362338385540623
+              },
+              {
+                "key": "syst",
+                "value": 0.003632483708476242
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00040113172695660504
+              },
+              {
+                "key": "nominal",
+                "value": 0.9977217818994827
+              },
+              {
+                "key": "systup",
+                "value": 1.0016657586107558
+              },
+              {
+                "key": "systdown",
+                "value": 0.9937778051882097
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0009130631212369567
+              },
+              {
+                "key": "massBin",
+                "value": 3.066566872866883e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0003310184172383157
+              },
+              {
+                "key": "stat",
+                "value": 0.0038980201914795964
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0007522057636122348
+              },
+              {
+                "key": "nominal",
+                "value": 0.9884085987102209
+              },
+              {
+                "key": "systup",
+                "value": 0.9923066189017005
+              },
+              {
+                "key": "systdown",
+                "value": 0.9845105785187414
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0003779113362955
+              },
+              {
+                "key": "massBin",
+                "value": 0.00015796525536049266
+              },
+              {
+                "key": "massRange",
+                "value": 0.0006885413312844868
+              },
+              {
+                "key": "stat",
+                "value": 0.0025375126373334356
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0006721163928873342
+              },
+              {
+                "key": "nominal",
+                "value": 0.9840929893978247
+              },
+              {
+                "key": "systup",
+                "value": 0.9866305020351582
+              },
+              {
+                "key": "systdown",
+                "value": 0.9815554767604913
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.003246089134717467
+              },
+              {
+                "key": "massBin",
+                "value": 0.00016973226619759751
+              },
+              {
+                "key": "massRange",
+                "value": 0.0008051405121453636
+              },
+              {
+                "key": "stat",
+                "value": 0.0017247635008668177
+              },
+              {
+                "key": "syst",
+                "value": 0.003246089134717467
+              },
+              {
+                "key": "tagIso",
+                "value": 7.449498959405387e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9763017443641109
+              },
+              {
+                "key": "systup",
+                "value": 0.9799775985239564
+              },
+              {
+                "key": "systdown",
+                "value": 0.9726258902042654
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0008168838157520675
+              },
+              {
+                "key": "massBin",
+                "value": 2.810614488107932e-05
+              },
+              {
+                "key": "massRange",
+                "value": 6.0909847508727744e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0009167311986254089
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0001418691657022464
+              },
+              {
+                "key": "nominal",
+                "value": 0.9781466323412047
+              },
+              {
+                "key": "systup",
+                "value": 0.9790633635398301
+              },
+              {
+                "key": "systdown",
+                "value": 0.9772299011425792
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.002412605501960652
+              },
+              {
+                "key": "massBin",
+                "value": 0.00015646175273315022
+              },
+              {
+                "key": "massRange",
+                "value": 0.00034680166011680225
+              },
+              {
+                "key": "stat",
+                "value": 0.0009164511749922226
+              },
+              {
+                "key": "syst",
+                "value": 0.002412605501960652
+              },
+              {
+                "key": "tagIso",
+                "value": 3.793587495243278e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9811673355777358
+              },
+              {
+                "key": "systup",
+                "value": 0.983748139340953
+              },
+              {
+                "key": "systdown",
+                "value": 0.9785865318145187
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.003259547026644438
+              },
+              {
+                "key": "massBin",
+                "value": 6.36655194511393e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0005444285540562865
+              },
+              {
+                "key": "stat",
+                "value": 0.00185716063502213
+              },
+              {
+                "key": "syst",
+                "value": 0.003259547026644438
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0007754958851143301
+              },
+              {
+                "key": "nominal",
+                "value": 0.9805364040640878
+              },
+              {
+                "key": "systup",
+                "value": 0.9842878960930255
+              },
+              {
+                "key": "systdown",
+                "value": 0.9767849120351502
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000672669236659651
+              },
+              {
+                "key": "massBin",
+                "value": 0.0002403716886894003
+              },
+              {
+                "key": "massRange",
+                "value": 0.0011626671935483501
+              },
+              {
+                "key": "stat",
+                "value": 0.002618502952174313
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0003212665591864061
+              },
+              {
+                "key": "nominal",
+                "value": 0.9755055231827784
+              },
+              {
+                "key": "systup",
+                "value": 0.9781240261349528
+              },
+              {
+                "key": "systdown",
+                "value": 0.972887020230604
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.008420359522404386
+              },
+              {
+                "key": "massBin",
+                "value": 0.0010996410846544347
+              },
+              {
+                "key": "massRange",
+                "value": 0.0013906192468949863
+              },
+              {
+                "key": "stat",
+                "value": 0.012611919547962747
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00027190766804235933
+              },
+              {
+                "key": "nominal",
+                "value": 0.9947212662017253
+              },
+              {
+                "key": "systup",
+                "value": 1.007333185749688
+              },
+              {
+                "key": "systdown",
+                "value": 0.9821093466537626
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0011086737047489859
+              },
+              {
+                "key": "massBin",
+                "value": 0.0007220680491966114
+              },
+              {
+                "key": "massRange",
+                "value": 6.0504806272232425e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.000426990337096568
+              },
+              {
+                "key": "syst",
+                "value": 0.0013230796088189256
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0002513919451315738
+              },
+              {
+                "key": "nominal",
+                "value": 0.998595697198783
+              },
+              {
+                "key": "systup",
+                "value": 0.9999859706967849
+              },
+              {
+                "key": "systdown",
+                "value": 0.9972054237007812
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0006208362033860437
+              },
+              {
+                "key": "massBin",
+                "value": 3.9340016206201867e-05
+              },
+              {
+                "key": "massRange",
+                "value": 4.048700181896736e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0002590891449885011
+              },
+              {
+                "key": "syst",
+                "value": 0.0006208362033860437
+              },
+              {
+                "key": "tagIso",
+                "value": 7.385641461127301e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9975392287145857
+              },
+              {
+                "key": "systup",
+                "value": 0.998211958063199
+              },
+              {
+                "key": "systdown",
+                "value": 0.9968664993659724
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 4.774891472325571e-06
+              },
+              {
+                "key": "massBin",
+                "value": 4.702445863979943e-06
+              },
+              {
+                "key": "massRange",
+                "value": 5.9113890648498923e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00020722231841452979
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 5.520418057830545e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9970298594871619
+              },
+              {
+                "key": "systup",
+                "value": 0.9972370818055765
+              },
+              {
+                "key": "systdown",
+                "value": 0.9968226371687474
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0004382846884544156
+              },
+              {
+                "key": "massBin",
+                "value": 2.7844932432408154e-05
+              },
+              {
+                "key": "massRange",
+                "value": 1.677953864775983e-05
+              },
+              {
+                "key": "stat",
+                "value": 9.219066428283318e-05
+              },
+              {
+                "key": "syst",
+                "value": 0.0004382846884544156
+              },
+              {
+                "key": "tagIso",
+                "value": 2.800759234200534e-06
+              },
+              {
+                "key": "nominal",
+                "value": 0.997365521331488
+              },
+              {
+                "key": "systup",
+                "value": 0.9978133969690421
+              },
+              {
+                "key": "systdown",
+                "value": 0.9969176456939339
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 2.230115363488494e-07
+              },
+              {
+                "key": "massBin",
+                "value": 1.2720255031573036e-05
+              },
+              {
+                "key": "massRange",
+                "value": 4.6671179627810755e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0001384881229808011
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 1.567383644868192e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.996973589299794
+              },
+              {
+                "key": "systup",
+                "value": 0.9971120774227747
+              },
+              {
+                "key": "systdown",
+                "value": 0.9968351011768132
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0006802259231840635
+              },
+              {
+                "key": "massBin",
+                "value": 8.284667837310522e-05
+              },
+              {
+                "key": "massRange",
+                "value": 6.951707990277001e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00021467468142245366
+              },
+              {
+                "key": "syst",
+                "value": 0.0006802259231840635
+              },
+              {
+                "key": "tagIso",
+                "value": 1.2605398451714933e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9972481224510852
+              },
+              {
+                "key": "systup",
+                "value": 0.9979614193916474
+              },
+              {
+                "key": "systdown",
+                "value": 0.996534825510523
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0003451967134110445
+              },
+              {
+                "key": "massBin",
+                "value": 1.0032165111084623e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00018107209940787516
+              },
+              {
+                "key": "stat",
+                "value": 0.0002842365467406219
+              },
+              {
+                "key": "syst",
+                "value": 0.0003451967134110445
+              },
+              {
+                "key": "tagIso",
+                "value": 9.121639372111634e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9973989399292631
+              },
+              {
+                "key": "systup",
+                "value": 0.9978460989451096
+              },
+              {
+                "key": "systdown",
+                "value": 0.9969517809134166
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0016201318679865961
+              },
+              {
+                "key": "massBin",
+                "value": 7.861268342918004e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00026397712533543505
+              },
+              {
+                "key": "stat",
+                "value": 0.0014516638810820235
+              },
+              {
+                "key": "syst",
+                "value": 0.0016201318679865961
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00016006185593270272
+              },
+              {
+                "key": "nominal",
+                "value": 0.9986953625093197
+              },
+              {
+                "key": "systup",
+                "value": 1.0008707142724385
+              },
+              {
+                "key": "systdown",
+                "value": 0.9965200107462009
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000336534172292402
+              },
+              {
+                "key": "massBin",
+                "value": 0.0001632033341041894
+              },
+              {
+                "key": "massRange",
+                "value": 0.00036688486290303857
+              },
+              {
+                "key": "stat",
+                "value": 0.0038978874264591888
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00015300475847895845
+              },
+              {
+                "key": "nominal",
+                "value": 0.9821151192867795
+              },
+              {
+                "key": "systup",
+                "value": 0.9860130067132387
+              },
+              {
+                "key": "systdown",
+                "value": 0.9782172318603204
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00014857293082526368
+              },
+              {
+                "key": "massBin",
+                "value": 0.00033047076406922393
+              },
+              {
+                "key": "massRange",
+                "value": 0.0012411473597067069
+              },
+              {
+                "key": "stat",
+                "value": 0.0025114898899531845
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00014982758507525729
+              },
+              {
+                "key": "nominal",
+                "value": 0.9842220853054932
+              },
+              {
+                "key": "systup",
+                "value": 0.9867335751954464
+              },
+              {
+                "key": "systdown",
+                "value": 0.98171059541554
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0029772246254249346
+              },
+              {
+                "key": "massBin",
+                "value": 0.0002818521163706622
+              },
+              {
+                "key": "massRange",
+                "value": 0.0006039469473067549
+              },
+              {
+                "key": "stat",
+                "value": 0.0017307499010702086
+              },
+              {
+                "key": "syst",
+                "value": 0.0029772246254249346
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0003673450705669046
+              },
+              {
+                "key": "nominal",
+                "value": 0.9803529650690708
+              },
+              {
+                "key": "systup",
+                "value": 0.9837967074651119
+              },
+              {
+                "key": "systdown",
+                "value": 0.9769092226730296
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0006208979050585928
+              },
+              {
+                "key": "massBin",
+                "value": 0.00012787145470211092
+              },
+              {
+                "key": "massRange",
+                "value": 0.00040602710315496005
+              },
+              {
+                "key": "stat",
+                "value": 0.0008576665226734065
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 2.6688899483318096e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9839140546726544
+              },
+              {
+                "key": "systup",
+                "value": 0.9847717211953277
+              },
+              {
+                "key": "systdown",
+                "value": 0.983056388149981
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0016785551328926118
+              },
+              {
+                "key": "massBin",
+                "value": 3.605970362380306e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00019547252728280284
+              },
+              {
+                "key": "stat",
+                "value": 0.0008675189267846735
+              },
+              {
+                "key": "syst",
+                "value": 0.0016785551328926118
+              },
+              {
+                "key": "tagIso",
+                "value": 2.578465677172126e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9841919544623868
+              },
+              {
+                "key": "systup",
+                "value": 0.9860814349260302
+              },
+              {
+                "key": "systdown",
+                "value": 0.9823024739987435
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0034593962327127414
+              },
+              {
+                "key": "massBin",
+                "value": 0.00015833153754007956
+              },
+              {
+                "key": "massRange",
+                "value": 6.466445647684838e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.001800460234583739
+              },
+              {
+                "key": "syst",
+                "value": 0.0034593962327127414
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0001852473817859912
+              },
+              {
+                "key": "nominal",
+                "value": 0.9810899509952884
+              },
+              {
+                "key": "systup",
+                "value": 0.9849898329616079
+              },
+              {
+                "key": "systdown",
+                "value": 0.9771900690289689
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.004176560271280438
+              },
+              {
+                "key": "massBin",
+                "value": 4.0572383772752296e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0012638845472719984
+              },
+              {
+                "key": "stat",
+                "value": 0.0025912692831473664
+              },
+              {
+                "key": "syst",
+                "value": 0.004176560271280438
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0002673366787364073
+              },
+              {
+                "key": "nominal",
+                "value": 0.9815558772954676
+              },
+              {
+                "key": "systup",
+                "value": 0.9864709899287061
+              },
+              {
+                "key": "systdown",
+                "value": 0.976640764662229
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0036205923925699546
+              },
+              {
+                "key": "massBin",
+                "value": 0.00045036494126693416
+              },
+              {
+                "key": "massRange",
+                "value": 0.0031860250633320986
+              },
+              {
+                "key": "stat",
+                "value": 0.012193102673353048
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.002992210009058416
+              },
+              {
+                "key": "nominal",
+                "value": 0.9953252406078611
+              },
+              {
+                "key": "systup",
+                "value": 1.007518343281214
+              },
+              {
+                "key": "systdown",
+                "value": 0.983132137934508
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0005095656194442633
+              },
+              {
+                "key": "massBin",
+                "value": 4.444299602990309e-05
+              },
+              {
+                "key": "massRange",
+                "value": 5.795103464739659e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0005381616180843944
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 4.1112698281053905e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9959700704574977
+              },
+              {
+                "key": "systup",
+                "value": 0.9965082320755821
+              },
+              {
+                "key": "systdown",
+                "value": 0.9954319088394133
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0002193802308633197
+              },
+              {
+                "key": "massBin",
+                "value": 5.686495235546207e-05
+              },
+              {
+                "key": "massRange",
+                "value": 4.133972208802961e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00037396932121006943
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 9.021064872527518e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9958616976533724
+              },
+              {
+                "key": "systup",
+                "value": 0.9962356669745824
+              },
+              {
+                "key": "systdown",
+                "value": 0.9954877283321624
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000689355613768261
+              },
+              {
+                "key": "massBin",
+                "value": 9.539781832601513e-06
+              },
+              {
+                "key": "massRange",
+                "value": 6.42008642831593e-06
+              },
+              {
+                "key": "stat",
+                "value": 0.00023486988442263416
+              },
+              {
+                "key": "syst",
+                "value": 0.000689355613768261
+              },
+              {
+                "key": "tagIso",
+                "value": 2.8044727799769742e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9965549279966974
+              },
+              {
+                "key": "systup",
+                "value": 0.9972831965081975
+              },
+              {
+                "key": "systdown",
+                "value": 0.9958266594851973
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0004039247712636085
+              },
+              {
+                "key": "massBin",
+                "value": 1.2729755377083318e-05
+              },
+              {
+                "key": "massRange",
+                "value": 6.644203984385033e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00012754599208111253
+              },
+              {
+                "key": "syst",
+                "value": 0.0004039247712636085
+              },
+              {
+                "key": "tagIso",
+                "value": 4.161730465651603e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.996216786249059
+              },
+              {
+                "key": "systup",
+                "value": 0.9966403700081153
+              },
+              {
+                "key": "systdown",
+                "value": 0.9957932024900026
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00020720562804266152
+              },
+              {
+                "key": "massBin",
+                "value": 4.490868692197392e-06
+              },
+              {
+                "key": "massRange",
+                "value": 5.5182886437743495e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0001427580262134984
+              },
+              {
+                "key": "syst",
+                "value": 0.00020720562804266152
+              },
+              {
+                "key": "tagIso",
+                "value": 8.86517577408652e-06
+              },
+              {
+                "key": "nominal",
+                "value": 0.9963628602099187
+              },
+              {
+                "key": "systup",
+                "value": 0.996614482995733
+              },
+              {
+                "key": "systdown",
+                "value": 0.9961112374241045
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000674457152496255
+              },
+              {
+                "key": "massBin",
+                "value": 7.244485810725676e-05
+              },
+              {
+                "key": "massRange",
+                "value": 7.135543405917266e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0002855296071539078
+              },
+              {
+                "key": "syst",
+                "value": 0.000674457152496255
+              },
+              {
+                "key": "tagIso",
+                "value": 1.5263765154760467e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9963232193957045
+              },
+              {
+                "key": "systup",
+                "value": 0.9970556261181714
+              },
+              {
+                "key": "systdown",
+                "value": 0.9955908126732375
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 3.8293337138450845e-05
+              },
+              {
+                "key": "massBin",
+                "value": 2.50983850974551e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00015076841031680388
+              },
+              {
+                "key": "stat",
+                "value": 0.00037135224622754533
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 7.572959280316427e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9962764909355671
+              },
+              {
+                "key": "systup",
+                "value": 0.9966478431817947
+              },
+              {
+                "key": "systdown",
+                "value": 0.9959051386893396
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000588847869621878
+              },
+              {
+                "key": "massBin",
+                "value": 0.00014117718685685565
+              },
+              {
+                "key": "massRange",
+                "value": 0.00020084872871828363
+              },
+              {
+                "key": "stat",
+                "value": 0.0017709583412653031
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0001339011201968443
+              },
+              {
+                "key": "nominal",
+                "value": 0.9971245587534989
+              },
+              {
+                "key": "systup",
+                "value": 0.9988955170947642
+              },
+              {
+                "key": "systdown",
+                "value": 0.9953536004122336
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0028878764788993205
+              },
+              {
+                "key": "massBin",
+                "value": 0.0001767626217947793
+              },
+              {
+                "key": "massRange",
+                "value": 0.0006750068623503913
+              },
+              {
+                "key": "stat",
+                "value": 0.0010917636997457123
+              },
+              {
+                "key": "syst",
+                "value": 0.0028878764788993205
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00028347756309782257
+              },
+              {
+                "key": "nominal",
+                "value": 0.9849006220213811
+              },
+              {
+                "key": "systup",
+                "value": 0.9879879798777791
+              },
+              {
+                "key": "systdown",
+                "value": 0.981813264164983
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0025964849593287376
+              },
+              {
+                "key": "massBin",
+                "value": 0.00011482067602663903
+              },
+              {
+                "key": "massRange",
+                "value": 0.00018576061634151264
+              },
+              {
+                "key": "stat",
+                "value": 0.0008025641338065379
+              },
+              {
+                "key": "syst",
+                "value": 0.0025964849593287376
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00031089822519042576
+              },
+              {
+                "key": "nominal",
+                "value": 0.9842395337829067
+              },
+              {
+                "key": "systup",
+                "value": 0.9869572245918277
+              },
+              {
+                "key": "systdown",
+                "value": 0.9815218429739858
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0007868630435113877
+              },
+              {
+                "key": "massBin",
+                "value": 0.00012344291360638637
+              },
+              {
+                "key": "massRange",
+                "value": 0.00030203178260518326
+              },
+              {
+                "key": "stat",
+                "value": 0.0005256032503040589
+              },
+              {
+                "key": "syst",
+                "value": 0.0007868630435113877
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00011984685442695264
+              },
+              {
+                "key": "nominal",
+                "value": 0.9863811469008835
+              },
+              {
+                "key": "systup",
+                "value": 0.9873274091404208
+              },
+              {
+                "key": "systdown",
+                "value": 0.9854348846613462
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 9.193574350907507e-05
+              },
+              {
+                "key": "massBin",
+                "value": 2.3692277105080706e-05
+              },
+              {
+                "key": "massRange",
+                "value": 4.829777329334872e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.000300847185244086
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 2.0852338098009682e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9848528165181369
+              },
+              {
+                "key": "systup",
+                "value": 0.985153663703381
+              },
+              {
+                "key": "systdown",
+                "value": 0.9845519693328929
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0005770221732792624
+              },
+              {
+                "key": "massBin",
+                "value": 3.701235119446533e-06
+              },
+              {
+                "key": "massRange",
+                "value": 2.942215562706796e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0002589389433293934
+              },
+              {
+                "key": "syst",
+                "value": 0.0005770221732792624
+              },
+              {
+                "key": "tagIso",
+                "value": 2.170639249798878e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9846320927138835
+              },
+              {
+                "key": "systup",
+                "value": 0.9852645513803816
+              },
+              {
+                "key": "systdown",
+                "value": 0.9839996340473854
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00045032445299719726
+              },
+              {
+                "key": "massBin",
+                "value": 2.19717965209143e-05
+              },
+              {
+                "key": "massRange",
+                "value": 7.31157788506076e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0004950927547189554
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 5.076024690020553e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9842364572728608
+              },
+              {
+                "key": "systup",
+                "value": 0.9847315500275797
+              },
+              {
+                "key": "systdown",
+                "value": 0.9837413645181419
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0010335041688334101
+              },
+              {
+                "key": "massBin",
+                "value": 2.3738596092837128e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00020091063723820524
+              },
+              {
+                "key": "stat",
+                "value": 0.0006837031087483467
+              },
+              {
+                "key": "syst",
+                "value": 0.0010335041688334101
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0002030185218638847
+              },
+              {
+                "key": "nominal",
+                "value": 0.9846215738362676
+              },
+              {
+                "key": "systup",
+                "value": 0.9858607593784315
+              },
+              {
+                "key": "systdown",
+                "value": 0.9833823882941036
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0006369795691900659
+              },
+              {
+                "key": "massBin",
+                "value": 2.9221866600315227e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0005147842727563634
+              },
+              {
+                "key": "stat",
+                "value": 0.0032975629659330297
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0010598817594918986
+              },
+              {
+                "key": "nominal",
+                "value": 0.9844586342061467
+              },
+              {
+                "key": "systup",
+                "value": 0.9877561971720796
+              },
+              {
+                "key": "systdown",
+                "value": 0.9811610712402137
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.001132938724513588
+              },
+              {
+                "key": "massBin",
+                "value": 0.00023100151704164018
+              },
+              {
+                "key": "massRange",
+                "value": 0.0005023042989870108
+              },
+              {
+                "key": "stat",
+                "value": 0.0006194337678460869
+              },
+              {
+                "key": "syst",
+                "value": 0.001132938724513588
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00017808922692263973
+              },
+              {
+                "key": "nominal",
+                "value": 0.9944705969538521
+              },
+              {
+                "key": "systup",
+                "value": 0.995761816666469
+              },
+              {
+                "key": "systdown",
+                "value": 0.9931793772412352
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000220819248653914
+              },
+              {
+                "key": "massBin",
+                "value": 0.0006542545693646318
+              },
+              {
+                "key": "massRange",
+                "value": 0.00021362518824175059
+              },
+              {
+                "key": "stat",
+                "value": 0.00037615260695914574
+              },
+              {
+                "key": "syst",
+                "value": 0.0006542545693646318
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00010434262780567582
+              },
+              {
+                "key": "nominal",
+                "value": 0.995308463949174
+              },
+              {
+                "key": "systup",
+                "value": 0.9960631425729979
+              },
+              {
+                "key": "systdown",
+                "value": 0.9945537853253502
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0003073108415144743
+              },
+              {
+                "key": "massBin",
+                "value": 1.0779460976051425e-05
+              },
+              {
+                "key": "massRange",
+                "value": 2.289645076342106e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00029878180252649347
+              },
+              {
+                "key": "syst",
+                "value": 0.0003073108415144743
+              },
+              {
+                "key": "tagIso",
+                "value": 6.77344632599719e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9959802945783099
+              },
+              {
+                "key": "systup",
+                "value": 0.996408909229055
+              },
+              {
+                "key": "systdown",
+                "value": 0.9955516799275649
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0004541484602035295
+              },
+              {
+                "key": "massBin",
+                "value": 3.323404383465123e-05
+              },
+              {
+                "key": "massRange",
+                "value": 2.9139099816388736e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00012189474386547002
+              },
+              {
+                "key": "syst",
+                "value": 0.0004541484602035295
+              },
+              {
+                "key": "tagIso",
+                "value": 4.2922703151759833e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9963527487778044
+              },
+              {
+                "key": "systup",
+                "value": 0.9968229712278079
+              },
+              {
+                "key": "systdown",
+                "value": 0.9958825263278009
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0001358089804605056
+              },
+              {
+                "key": "massBin",
+                "value": 8.121067365635115e-05
+              },
+              {
+                "key": "massRange",
+                "value": 1.7697270038308233e-06
+              },
+              {
+                "key": "stat",
+                "value": 0.00013533558832492902
+              },
+              {
+                "key": "syst",
+                "value": 0.0001358089804605056
+              },
+              {
+                "key": "tagIso",
+                "value": 2.109561481422606e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9963774946519227
+              },
+              {
+                "key": "systup",
+                "value": 0.9965692231074034
+              },
+              {
+                "key": "systdown",
+                "value": 0.9961857661964421
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000435178634504374
+              },
+              {
+                "key": "massBin",
+                "value": 0.0003086700094544481
+              },
+              {
+                "key": "massRange",
+                "value": 0.00012655859402410652
+              },
+              {
+                "key": "stat",
+                "value": 0.0002247547008858428
+              },
+              {
+                "key": "syst",
+                "value": 0.0005335331467357025
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00020655022079257845
+              },
+              {
+                "key": "nominal",
+                "value": 0.9965031123136868
+              },
+              {
+                "key": "systup",
+                "value": 0.9970820529792441
+              },
+              {
+                "key": "systdown",
+                "value": 0.9959241716481295
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0008037478389913977
+              },
+              {
+                "key": "massBin",
+                "value": 1.5119183741307829e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0002857500985498085
+              },
+              {
+                "key": "stat",
+                "value": 0.0003218423300139542
+              },
+              {
+                "key": "syst",
+                "value": 0.0008037478389913977
+              },
+              {
+                "key": "tagIso",
+                "value": 5.966467888618432e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9962823579946262
+              },
+              {
+                "key": "systup",
+                "value": 0.9971481484277405
+              },
+              {
+                "key": "systdown",
+                "value": 0.9954165675615119
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000610115091592256
+              },
+              {
+                "key": "massBin",
+                "value": 0.0002907217521025407
+              },
+              {
+                "key": "massRange",
+                "value": 0.00014658586175586574
+              },
+              {
+                "key": "stat",
+                "value": 0.0017533151646319624
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0006149641350549073
+              },
+              {
+                "key": "nominal",
+                "value": 0.9963688170463483
+              },
+              {
+                "key": "systup",
+                "value": 0.9981221322109802
+              },
+              {
+                "key": "systdown",
+                "value": 0.9946155018817163
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0036206023188434244
+              },
+              {
+                "key": "massBin",
+                "value": 9.338450722190528e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00020877808158303868
+              },
+              {
+                "key": "stat",
+                "value": 0.0006489424515272689
+              },
+              {
+                "key": "syst",
+                "value": 0.0036206023188434244
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0002669456558497263
+              },
+              {
+                "key": "nominal",
+                "value": 0.9879620468463247
+              },
+              {
+                "key": "systup",
+                "value": 0.9916403463796157
+              },
+              {
+                "key": "systdown",
+                "value": 0.9842837473130337
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.004935689824570821
+              },
+              {
+                "key": "massBin",
+                "value": 3.162021733260634e-05
+              },
+              {
+                "key": "massRange",
+                "value": 7.168427451226256e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0004984527304672836
+              },
+              {
+                "key": "syst",
+                "value": 0.004935689824570821
+              },
+              {
+                "key": "tagIso",
+                "value": 6.681769463678933e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9896821373825742
+              },
+              {
+                "key": "systup",
+                "value": 0.9946429325979487
+              },
+              {
+                "key": "systdown",
+                "value": 0.9847213421671996
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0011724461878866999
+              },
+              {
+                "key": "massBin",
+                "value": 8.646894601405108e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00020589242392327067
+              },
+              {
+                "key": "stat",
+                "value": 0.0003539912470022419
+              },
+              {
+                "key": "syst",
+                "value": 0.0011724461878866999
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00013575467963500287
+              },
+              {
+                "key": "nominal",
+                "value": 0.9902851679605726
+              },
+              {
+                "key": "systup",
+                "value": 0.9915098882822968
+              },
+              {
+                "key": "systdown",
+                "value": 0.9890604476388485
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 6.2750530660515835e-06
+              },
+              {
+                "key": "massBin",
+                "value": 2.406031534740727e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00013166420688270897
+              },
+              {
+                "key": "stat",
+                "value": 0.00018143463582428237
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 6.725057839812587e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9901816605263961
+              },
+              {
+                "key": "systup",
+                "value": 0.9903630951622204
+              },
+              {
+                "key": "systdown",
+                "value": 0.9900002258905718
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.00031224005162999724
+              },
+              {
+                "key": "massBin",
+                "value": 1.3046595136401162e-05
+              },
+              {
+                "key": "massRange",
+                "value": 6.004222113165092e-06
+              },
+              {
+                "key": "stat",
+                "value": 0.00014900605515863808
+              },
+              {
+                "key": "syst",
+                "value": 0.00031224005162999724
+              },
+              {
+                "key": "tagIso",
+                "value": 1.6581575971064133e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9894720392458192
+              },
+              {
+                "key": "systup",
+                "value": 0.9898180112884987
+              },
+              {
+                "key": "systdown",
+                "value": 0.9891260672031397
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 3.108032606990996e-05
+              },
+              {
+                "key": "massBin",
+                "value": 2.715397794472718e-05
+              },
+              {
+                "key": "massRange",
+                "value": 7.603918821291744e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.00036425435796928746
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 8.691264582555425e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9897182535465265
+              },
+              {
+                "key": "systup",
+                "value": 0.9900825079044958
+              },
+              {
+                "key": "systdown",
+                "value": 0.9893539991885573
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.002664292282377523
+              },
+              {
+                "key": "massBin",
+                "value": 3.60946284690411e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00014486669444507827
+              },
+              {
+                "key": "stat",
+                "value": 0.0005022113645051665
+              },
+              {
+                "key": "syst",
+                "value": 0.002664292282377523
+              },
+              {
+                "key": "tagIso",
+                "value": 4.734954001422986e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9894546824569063
+              },
+              {
+                "key": "systup",
+                "value": 0.9921658942930738
+              },
+              {
+                "key": "systdown",
+                "value": 0.9867434706207387
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0002640629468287914
+              },
+              {
+                "key": "massBin",
+                "value": 8.939316430311983e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0010752208789280848
+              },
+              {
+                "key": "stat",
+                "value": 0.0027198506666892813
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0005131787624583772
+              },
+              {
+                "key": "nominal",
+                "value": 0.9896598299242162
+              },
+              {
+                "key": "systup",
+                "value": 0.9923796805909054
+              },
+              {
+                "key": "systdown",
+                "value": 0.986939979257527
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      },
+      {
+        "nodetype": "binning",
+        "input": "pt",
+        "edges": [
+          15.0,
+          20.0,
+          25.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          120.0,
+          Infinity
+        ],
+        "content": [
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.004202350431299462
+              },
+              {
+                "key": "massBin",
+                "value": 0.00011301875660968408
+              },
+              {
+                "key": "massRange",
+                "value": 0.0011087372686744423
+              },
+              {
+                "key": "stat",
+                "value": 0.0012719308467698958
+              },
+              {
+                "key": "syst",
+                "value": 0.004202350431299462
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0007378722437781371
+              },
+              {
+                "key": "nominal",
+                "value": 0.9804608228013033
+              },
+              {
+                "key": "systup",
+                "value": 0.9848514443092914
+              },
+              {
+                "key": "systdown",
+                "value": 0.9760702012933152
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.0010522461824913343
+              },
+              {
+                "key": "massBin",
+                "value": 0.00012575288160204812
+              },
+              {
+                "key": "massRange",
+                "value": 0.0003210805877414402
+              },
+              {
+                "key": "stat",
+                "value": 0.0009668503814965365
+              },
+              {
+                "key": "syst",
+                "value": 0.0010522461824913343
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0004536108121989124
+              },
+              {
+                "key": "nominal",
+                "value": 0.9793386404649281
+              },
+              {
+                "key": "systup",
+                "value": 0.9807676337080079
+              },
+              {
+                "key": "systdown",
+                "value": 0.9779096472218484
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.005272707071179994
+              },
+              {
+                "key": "massBin",
+                "value": 2.439266107417959e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.00036158694637122846
+              },
+              {
+                "key": "stat",
+                "value": 0.0007214976793931374
+              },
+              {
+                "key": "syst",
+                "value": 0.005272707071179994
+              },
+              {
+                "key": "tagIso",
+                "value": 8.146341506631849e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9809456765331964
+              },
+              {
+                "key": "systup",
+                "value": 0.98626751820313
+              },
+              {
+                "key": "systdown",
+                "value": 0.9756238348632629
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000207308274881024
+              },
+              {
+                "key": "massBin",
+                "value": 2.9407867613906458e-05
+              },
+              {
+                "key": "massRange",
+                "value": 7.222810597079521e-05
+              },
+              {
+                "key": "stat",
+                "value": 0.0004342489603524837
+              },
+              {
+                "key": "syst",
+                "value": 0.0
+              },
+              {
+                "key": "tagIso",
+                "value": 7.007633694888771e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.9790894838293799
+              },
+              {
+                "key": "systup",
+                "value": 0.9795237327897324
+              },
+              {
+                "key": "systdown",
+                "value": 0.9786552348690274
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.000797378084948619
+              },
+              {
+                "key": "massBin",
+                "value": 0.000122493459565165
+              },
+              {
+                "key": "massRange",
+                "value": 0.00039057860740737693
+              },
+              {
+                "key": "stat",
+                "value": 0.000392115462894591
+              },
+              {
+                "key": "syst",
+                "value": 0.000797378084948619
+              },
+              {
+                "key": "tagIso",
+                "value": 8.410340055431398e-05
+              },
+              {
+                "key": "nominal",
+                "value": 0.981328808507843
+              },
+              {
+                "key": "systup",
+                "value": 0.9822173839669894
+              },
+              {
+                "key": "systdown",
+                "value": 0.9804402330486965
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.003923693534146677
+              },
+              {
+                "key": "massBin",
+                "value": 8.880526324406279e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0004370178795126134
+              },
+              {
+                "key": "stat",
+                "value": 0.0008366015207319725
+              },
+              {
+                "key": "syst",
+                "value": 0.003923693534146677
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00012618225098498526
+              },
+              {
+                "key": "nominal",
+                "value": 0.9771339090943049
+              },
+              {
+                "key": "systup",
+                "value": 0.9811458005502637
+              },
+              {
+                "key": "systdown",
+                "value": 0.973122017638346
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.007610703751163572
+              },
+              {
+                "key": "massBin",
+                "value": 6.749069245209904e-05
+              },
+              {
+                "key": "massRange",
+                "value": 0.0002673188920429004
+              },
+              {
+                "key": "stat",
+                "value": 0.0012300455662222361
+              },
+              {
+                "key": "syst",
+                "value": 0.007610703751163572
+              },
+              {
+                "key": "tagIso",
+                "value": 0.00038249026258124763
+              },
+              {
+                "key": "nominal",
+                "value": 0.9791796101511502
+              },
+              {
+                "key": "systup",
+                "value": 0.9868890734063294
+              },
+              {
+                "key": "systdown",
+                "value": 0.971470146895971
+              }
+            ],
+            "default": null
+          },
+          {
+            "nodetype": "category",
+            "input": "scale_factors",
+            "content": [
+              {
+                "key": "AltSig",
+                "value": 0.03247766270724628
+              },
+              {
+                "key": "massBin",
+                "value": 0.01012437991438897
+              },
+              {
+                "key": "massRange",
+                "value": 0.033473698177504396
+              },
+              {
+                "key": "stat",
+                "value": 0.008389970137633627
+              },
+              {
+                "key": "syst",
+                "value": 0.04772619944281337
+              },
+              {
+                "key": "tagIso",
+                "value": 0.0010906299351737259
+              },
+              {
+                "key": "nominal",
+                "value": 0.9692895967292257
+              },
+              {
+                "key": "systup",
+                "value": 1.0177476374672247
+              },
+              {
+                "key": "systdown",
+                "value": 0.9208315559912266
+              }
+            ],
+            "default": null
+          }
+        ],
+        "flow": "error"
+      }
+    ],
+    "flow": "error"
+  }
+}
