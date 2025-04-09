@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 import os
 import subprocess
@@ -149,6 +151,7 @@ def compile_non_uniform_binning(content: schema.Binning) -> str:
             case _:
                 print("ERROR: Could not parse {edge}.", file=sys.stderr)
                 sys.exit(-1)
+
 
     values = [f"{v}.0f" for v in list(range(len(edges) - 1))]
 
